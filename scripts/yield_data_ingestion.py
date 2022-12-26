@@ -13,7 +13,7 @@ logging.basicConfig(filename='scripts/data_ingestion.log',
 
 def run():
     logging.info(
-        "===============================YIELD DATA INGESTION STARTED===============================")
+        "=====================YIELD DATA INGESTION STARTED=====================")
     start_time = datetime.now()
     rec_count = 0
     total_count = 0
@@ -48,4 +48,4 @@ def run():
     logging.info("Data ingestion took: %s seconds to insert %s records", str(
         total_time_taken), str(rec_count))
     logging.info(
-        "===============================YIELD DATA INGESTION ENDED===============================\n")
+        "=====================YIELD DATA INGESTION ENDED=====================\n")

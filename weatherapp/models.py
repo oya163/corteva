@@ -12,6 +12,7 @@ class WeatherData(models.Model):
     class Meta:
         managed = True
         db_table = 'weatherdata'
+        # To prevent the duplicate insertion
         unique_together = ["date", "max_temp", "min_temp", "precipitation"]
 
     def __str__(self):
@@ -26,7 +27,8 @@ class YieldData(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'yieldata'
+        db_table = 'yielddata'
+        # To prevent the duplicate insertion
         unique_together = ["date", "corn_grain_yield"]
 
     def __str__(self):

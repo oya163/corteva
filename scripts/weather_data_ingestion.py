@@ -13,9 +13,10 @@ logging.basicConfig(filename='scripts/data_ingestion.log',
 
 def run():
     logging.info(
-        "===============================DATA INGESTION STARTED===============================")
+        "===============================WEATHER DATA INGESTION STARTED===============================")
     start_time = datetime.now()
     rec_count = 0
+    total_count = 0
     for root, dirs, files in os.walk('code-challenge-template/wx_data'):
         for file in files:
             file_name = os.path.join(root, file)
@@ -23,7 +24,7 @@ def run():
                 weather_data = []
                 data = csv.reader(csvfile, delimiter="\t")
                 for row in data:
-                    rec_count += 1
+                    total_count += 1
                     weather = WeatherData(
                         date=datetime.strptime(row[0], '%Y%m%d').date(),
                         max_temp=float(row[1]),
@@ -31,18 +32,22 @@ def run():
                         precipitation=float(row[3]),
                         created_at=datetime.now())
                     weather_data.append(weather)
-            try:
-                WeatherData.objects.bulk_create(weather_data)
-            except:  # pylint: disable=W0702
-                logging.warning("Duplicate data insertion not allowed !!!")
-            finally:
-                weather_data = []
+                try:
+                    inserted_list = WeatherData.objects.bulk_create(
+                        weather_data)
+                    rec_count += len(inserted_list)
+                except:  # pylint: disable=W0702
+                    logging.warning("Duplicate data insertion not allowed !!!")
+                finally:
+                    weather_data = []
 
     end_time = datetime.now()
 
     logging.info("Data ingestion started at: %s", str(start_time))
     logging.info("Data ingestion ended at: %s", str(end_time))
+    logging.info("Total number of records found: %s", str(total_count))
+    total_time_taken = (end_time-start_time).total_seconds()
+    logging.info("Data ingestion took: %s seconds to insert %s records", str(
+        total_time_taken), str(rec_count))
     logging.info(
-        f"Data ingestion took: {(end_time-start_time).total_seconds()} seconds to insert {rec_count} records")
-    logging.info(
-        "===============================DATA INGESTION ENDED===============================\n")
+        "===============================WEATHER DATA INGESTION ENDED===============================\n")

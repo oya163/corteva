@@ -47,7 +47,7 @@ def run():
     logging.info("Data ingestion ended at: %s", str(end_time))
     logging.info("Total number of records found: %s", str(total_count))
     total_time_taken = (end_time-start_time).total_seconds()
-    logging.info("Data ingestion took: %s seconds to insert %s records", str(
+    logging.info("Data ingestion took: %s seconds to ingest %s records", str(
         total_time_taken), str(rec_count))
     logging.info(
         "=====================WEATHER DATA INGESTION ENDED=====================\n")

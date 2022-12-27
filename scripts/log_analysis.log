@@ -1,0 +1,23 @@
+12/27/2022 02:52:07 AM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 02:53:53 AM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 02:53:57 AM INFO:Data analysis started at: 2022-12-27 02:53:53.977250
+12/27/2022 02:53:57 AM INFO:Data analysis ended at: 2022-12-27 02:53:57.757481
+12/27/2022 02:53:57 AM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 02:53:57 AM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 03:04:54 AM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 03:04:58 AM INFO:Data analysis started at: 2022-12-27 03:04:54.461212
+12/27/2022 03:04:58 AM INFO:Data analysis ended at: 2022-12-27 03:04:58.107416
+12/27/2022 03:04:58 AM INFO:Data analysis took: 3 seconds and inserted 0 records
+12/27/2022 03:04:58 AM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 03:07:29 AM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 03:07:33 AM INFO:Data analysis started at: 2022-12-27 03:07:29.909705
+12/27/2022 03:07:33 AM INFO:Data analysis ended at: 2022-12-27 03:07:33.660182
+12/27/2022 03:07:33 AM INFO:Number of rows with NaN values: 23
+12/27/2022 03:07:33 AM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 03:07:33 AM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 03:12:38 AM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 03:12:41 AM INFO:Data analysis started at: 2022-12-27 03:12:38.133618
+12/27/2022 03:12:41 AM INFO:Data analysis ended at: 2022-12-27 03:12:41.888287
+12/27/2022 03:12:41 AM INFO:Number of rows with NaN values: 23
+12/27/2022 03:12:41 AM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 03:12:41 AM INFO:=====================DATA ANALYSIS ENDED=====================

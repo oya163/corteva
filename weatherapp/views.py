@@ -4,8 +4,8 @@ from rest_framework import status
 
 from django.http import Http404
 
-from .models import WeatherData, YieldData
-from .serializers import WeatherDataSerializer, YieldDataSerializer
+from .models import WeatherData, YieldData, Analytics
+from .serializers import WeatherDataSerializer, YieldDataSerializer, AnalyticsSerializer
 
 
 class WeatherDataList(APIView):
@@ -13,13 +13,6 @@ class WeatherDataList(APIView):
         weatherdata_list = WeatherData.objects.all()
         serializer = WeatherDataSerializer(weatherdata_list, many=True)
         return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = WeatherDataSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class WeatherDataDetail(APIView):
@@ -34,18 +27,19 @@ class WeatherDataDetail(APIView):
         serializer = WeatherDataSerializer(weatherdata)
         return Response(serializer.data)
 
-    # def put(self, request, id, format=None):
-    #     weatherdata = self.get_object(id)
-    #     serializer = WeatherDataSerializer(weatherdata, data=request.data)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         return Response(serializer.data, status=status.HTTP_200_OK)
-    #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # def delete(self, request, user_id, id, format=None):
-    #     weatherdata = self.get_object(id)
-    #     weatherdata.delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
+class WeatherDataByYear(APIView):
+    def get(self, request, year, format=None):
+        weatherdata = WeatherData.objects.filter(date__year=year)
+        serializer = WeatherDataSerializer(weatherdata, many=True)
+        return Response(serializer.data)
+
+
+class WeatherDataByStationID(APIView):
+    def get(self, request, station_id, format=None):
+        weatherdata = WeatherData.objects.filter(station_id__exact=station_id)
+        serializer = WeatherDataSerializer(weatherdata, many=True)
+        return Response(serializer.data)
 
 
 class YieldDataList(APIView):
@@ -54,9 +48,69 @@ class YieldDataList(APIView):
         serializer = YieldDataSerializer(yielddata_list, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format=None):
-        serializer = YieldDataSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class YieldDataDetail(APIView):
+    def get_object(self, id):
+        try:
+            return YieldData.objects.get(id=id)
+        except YieldData.DoesNotExist:
+            raise Http404
+
+    def get(self, request, id, format=None):
+        yielddata = self.get_object(id)
+        serializer = YieldDataSerializer(yielddata)
+        return Response(serializer.data)
+
+
+class YieldDataByYear(APIView):
+    def get_object(self, year):
+        try:
+            return YieldData.objects.get(date__year=year)
+        except YieldData.DoesNotExist:
+            raise Http404
+
+    def get(self, request, year, format=None):
+        yielddata = self.get_object(year)
+        serializer = YieldDataSerializer(yielddata)
+        return Response(serializer.data)
+
+
+class AnalyticsList(APIView):
+    def get(self, request, format=None):
+        year = request.GET.get('year')
+        station_id = request.GET.get('station_id')
+        if year and station_id:
+            analytics_list = Analytics.objects.filter(
+                date__year=year).filter(station_id__exact=station_id)
+        elif station_id:
+            analytics_list = Analytics.objects.filter(
+                station_id__exact=station_id)
+        elif year:
+            analytics_list = Analytics.objects.filter(date__year=year)
+        else:
+            analytics_list = Analytics.objects.all()
+        serializer = AnalyticsSerializer(analytics_list, many=True)
+        return Response(serializer.data)
+
+
+class AnalyticsByDateList(APIView):
+    def get(self, request, year, format=None):
+        analytics_list = Analytics.objects.filter(date__year=year)
+        serializer = AnalyticsSerializer(analytics_list, many=True)
+        return Response(serializer.data)
+
+
+class AnalyticsByStationIDList(APIView):
+    def get(self, request, station_id, format=None):
+        analytics_list = Analytics.objects.filter(
+            station_id__startswith=station_id)
+        serializer = AnalyticsSerializer(analytics_list, many=True)
+        return Response(serializer.data)
+
+
+class AnalyticsByYearAndStationIDList(APIView):
+    def get(self, request, year, station_id, format=None):
+        analytics_list = Analytics.objects.filter(
+            date__year=year).filter(station_id__exact=station_id)
+        serializer = AnalyticsSerializer(analytics_list, many=True)
+        return Response(serializer.data)

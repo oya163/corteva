@@ -4,8 +4,8 @@ from rest_framework import status
 
 from django.http import Http404
 
-from .models import *
-from .serializers import *
+from .models import WeatherData, YieldData
+from .serializers import WeatherDataSerializer, YieldDataSerializer
 
 
 class WeatherDataList(APIView):

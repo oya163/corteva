@@ -4,9 +4,9 @@ from django.db import models
 # Weather Data model
 class WeatherData(models.Model):
     date = models.DateField()
-    max_temp = models.FloatField()
-    min_temp = models.FloatField()
-    precipitation = models.FloatField()
+    max_temp = models.FloatField(null=True)
+    min_temp = models.FloatField(null=True)
+    precipitation = models.FloatField(null=True)
     station_id = models.CharField(max_length=11, default='USC00110072')
     created_at = models.DateTimeField(auto_now_add=True)
 

@@ -31,7 +31,7 @@ def run():
     for root, dirs, files in os.walk(WEATHER_DATA_DIR):
         for file in files:
             file_name = os.path.join(root, file)
-            station_id = file.split('.')[0]
+            station_id = file.split('.')[0]     # station id is filename
             weather_data = []
             inserted_list = []
             num_of_files += 1
@@ -45,14 +45,18 @@ def run():
                     # Prepare weather data for insertion
                     weather = WeatherData(
                         date=datetime.strptime(row[0], '%Y%m%d').date(),
-                        max_temp=float(row[1]),
-                        min_temp=float(row[2]),
-                        precipitation=float(row[3]),
+                        max_temp=float(row[1]) if float(
+                            row[1]) != -9999 else None,
+                        min_temp=float(row[2]) if float(
+                            row[2]) != -9999 else None,
+                        precipitation=float(
+                            row[3]) if float(row[3]) != -9999 else None,
                         station_id=station_id,
                         created_at=datetime.now())
 
                     # Append each weather data for bulk insertion
                     weather_data.append(weather)
+
                 try:
                     # Bulk insert into database
                     # "ignore_conflicts=True" to ignore conflict
@@ -62,9 +66,9 @@ def run():
                         weather_data)
                     rec_count += len(inserted_list)
                     weather_data = []
-                except:  # pylint: disable=W0702
+                except Exception as error:  # pylint: disable=W0702
                     dupli_rec_count += 1
-                    print("Duplicate data insertion not allowed !!!")
+                    logging.error(error)
 
             logging.info(
                 "Number of records ingested from file: %s = %d", file, len(inserted_list))

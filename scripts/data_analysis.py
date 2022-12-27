@@ -50,6 +50,7 @@ def perform_analysis():
     assert df.loc[df['min_temp'] == -9999].shape[0] == 0
     assert df.loc[df['precipitation'] == -9999].shape[0] == 0
 
+    # Perform aggregation
     df_avg_max_temp = df.groupby(
         [df['date'].dt.year, 'station_id']).agg(avg_max_temp=('max_temp', 'mean')).reset_index()
     df_avg_min_temp = df.groupby(
@@ -77,7 +78,7 @@ def run():
     start_time = datetime.now()
 
     # Analytics table clean up
-    # Analytics.objects.all().delete()
+    Analytics.objects.all().delete()
 
     logging.info(
         "=====================DATA ANALYSIS STARTED=====================")

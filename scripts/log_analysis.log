@@ -21,3 +21,9 @@
 12/27/2022 03:12:41 AM INFO:Number of rows with NaN values: 23
 12/27/2022 03:12:41 AM INFO:Data analysis took: 3 seconds and inserted 4820 records
 12/27/2022 03:12:41 AM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 08:58:21 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 08:58:25 PM INFO:Data analysis started at: 2022-12-27 20:58:21.453151
+12/27/2022 08:58:25 PM INFO:Data analysis ended at: 2022-12-27 20:58:25.286696
+12/27/2022 08:58:25 PM INFO:Number of rows with NaN values: 23
+12/27/2022 08:58:25 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 08:58:25 PM INFO:=====================DATA ANALYSIS ENDED=====================

@@ -1,9 +1,9 @@
-import os
-import csv
-import numpy as np
 import logging
-import pandas as pd
 from datetime import datetime
+
+import numpy as np
+import pandas as pd
+
 from weatherapp.models import WeatherData, Analytics
 
 logging.basicConfig(filename='scripts/log_analysis.log',

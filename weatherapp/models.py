@@ -35,3 +35,24 @@ class YieldData(models.Model):
 
     def __str__(self):
         return f"{self.date} {self.corn_grain_yield}"
+
+
+# Analytics Data model
+class Analytics(models.Model):
+    date = models.DateField()
+    avg_max_temp = models.FloatField(null=True)
+    avg_min_temp = models.FloatField(null=True)
+    total_precipitation = models.FloatField(null=True)
+    station_id = models.CharField(max_length=11, default='USC00110072')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        managed = True
+        db_table = 'analytics'
+        # To prevent the duplicate insertion
+        unique_together = ["date", "avg_max_temp",
+                           "avg_min_temp", "total_precipitation",
+                           "station_id"]
+
+    def __str__(self):
+        return f"{self.date} {self.station_id} {self.total_precipitation}"

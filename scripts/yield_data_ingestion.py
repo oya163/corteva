@@ -1,10 +1,19 @@
+"""
+    Author - Oyesh Mann Singh
+    Date - 12/27/2022
+    Description:
+        1. This script loads the YieldData table
+        with the yield data file present in code-challenge-template/yld_data.
+        2. Creates log file to log the necessary information.
+"""
+
 import os
 import csv
 import logging
 from datetime import datetime
 from weatherapp.models import YieldData
 
-logging.basicConfig(filename='scripts/data_ingestion.log',
+logging.basicConfig(filename='logs/data_ingestion.log',
                     filemode='a',
                     format='%(asctime)s %(levelname)s:%(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p',

@@ -1,3 +1,12 @@
+"""
+    Author - Oyesh Mann Singh
+    Date - 12/27/2022
+    Description:
+        1. Extracts data from WeatherData table into pandas dataframe
+        2. Transforms data using basic data aggregation
+        3. Loads the transformed data into the Analytics table
+"""
+
 import logging
 from datetime import datetime
 
@@ -6,7 +15,7 @@ import pandas as pd
 
 from weatherapp.models import WeatherData, Analytics
 
-logging.basicConfig(filename='scripts/log_analysis.log',
+logging.basicConfig(filename='logs/log_analysis.log',
                     filemode='a',
                     format='%(asctime)s %(levelname)s:%(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p',
@@ -40,15 +49,6 @@ def perform_analysis():
                  df.loc[df['min_temp'].isnull()].shape[0])
     logging.info("Number of missing values in precipitation : %d",
                  df.loc[df['precipitation'].isnull()].shape[0])
-
-    # Replace None (missing values) with NaN so it is not
-    # taken into account while performing aggregation
-    # df.replace(None, np.nan, inplace=True)
-
-    # Assert there are no missing values before aggregation
-    # assert df.loc[df['max_temp'].isnull()].shape[0] == 0
-    # assert df.loc[df['min_temp'].isnull()].shape[0] == 0
-    # assert df.loc[df['precipitation'].isnull()].shape[0] == 0
 
     # Perform aggregation
     df_avg_max_temp = df.groupby(
@@ -102,7 +102,10 @@ def run():
         created_at=datetime.now()) for row in df_records]
 
     inserted_list = []
-    inserted_list = Analytics.objects.bulk_create(analysis_list)
+    try:
+        inserted_list = Analytics.objects.bulk_create(analysis_list)
+    except Exception as error:  # pylint: disable=W0702
+        logging.error(error)
 
     end_time = datetime.now()
 

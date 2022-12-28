@@ -72,6 +72,8 @@ python manage.py runscript perform_etl
 ### Start the django standalone server
 ```
 python manage.py runserver
+
+Note: The server is hosted at http://127.0.0.1:8000/ by default
 ```
 
 ## REST API

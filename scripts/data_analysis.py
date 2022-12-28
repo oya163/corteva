@@ -34,21 +34,21 @@ def perform_analysis():
     df.loc[:, 'date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
 
     # Check the number of missing values in each column
-    print("Number of missing values in max_temp",
-          df.loc[df['max_temp'] == -9999].shape[0])
-    print("Number of missing values in min_temp",
-          df.loc[df['min_temp'] == -9999].shape[0])
-    print("Number of missing values in precipitation",
-          df.loc[df['precipitation'] == -9999].shape[0])
+    logging.info("Number of missing values in max_temp : %d",
+                 df.loc[df['max_temp'].isnull()].shape[0])
+    logging.info("Number of missing values in min_temp : %d",
+                 df.loc[df['min_temp'].isnull()].shape[0])
+    logging.info("Number of missing values in precipitation : %d",
+                 df.loc[df['precipitation'].isnull()].shape[0])
 
-    # Replace -9999 (missing values) with NaN so it is not
+    # Replace None (missing values) with NaN so it is not
     # taken into account while performing aggregation
-    df.replace(-9999, np.nan, inplace=True)
+    # df.replace(None, np.nan, inplace=True)
 
     # Assert there are no missing values before aggregation
-    assert df.loc[df['max_temp'] == -9999].shape[0] == 0
-    assert df.loc[df['min_temp'] == -9999].shape[0] == 0
-    assert df.loc[df['precipitation'] == -9999].shape[0] == 0
+    # assert df.loc[df['max_temp'].isnull()].shape[0] == 0
+    # assert df.loc[df['min_temp'].isnull()].shape[0] == 0
+    # assert df.loc[df['precipitation'].isnull()].shape[0] == 0
 
     # Perform aggregation
     df_avg_max_temp = df.groupby(
@@ -78,7 +78,7 @@ def run():
     start_time = datetime.now()
 
     # Analytics table clean up
-    Analytics.objects.all().delete()
+    # Analytics.objects.all().delete()
 
     logging.info(
         "=====================DATA ANALYSIS STARTED=====================")
@@ -109,9 +109,10 @@ def run():
     # Logging important info
     logging.info("Data analysis started at: %s", str(start_time))
     logging.info("Data analysis ended at: %s", str(end_time))
-    logging.info("Number of rows with NaN values: %d", df_with_nulls.shape[0])
+    logging.info(
+        "Number of rows with NaN values in Analytics model: %d", df_with_nulls.shape[0])
     logging.info("Data analysis took: %d seconds and inserted %d records",
                  (end_time-start_time).total_seconds(), len(inserted_list))
 
     logging.info(
-        "=====================DATA ANALYSIS ENDED=====================")
+        "=====================DATA ANALYSIS ENDED=====================\n")

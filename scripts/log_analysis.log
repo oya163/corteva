@@ -27,3 +27,83 @@
 12/27/2022 08:58:25 PM INFO:Number of rows with NaN values: 23
 12/27/2022 08:58:25 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
 12/27/2022 08:58:25 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:23:10 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:23:13 PM INFO:Data analysis started at: 2022-12-27 21:23:10.210290
+12/27/2022 09:23:13 PM INFO:Data analysis ended at: 2022-12-27 21:23:13.951119
+12/27/2022 09:23:13 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:23:13 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:23:13 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:24:32 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:27:08 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:28:51 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:30:03 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:30:06 PM INFO:Data analysis started at: 2022-12-27 21:30:03.061361
+12/27/2022 09:30:06 PM INFO:Data analysis ended at: 2022-12-27 21:30:06.599532
+12/27/2022 09:30:06 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:30:06 PM INFO:Data analysis took: 3 seconds and inserted 0 records
+12/27/2022 09:30:06 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:31:08 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:31:11 PM INFO:Data analysis started at: 2022-12-27 21:31:08.035052
+12/27/2022 09:31:11 PM INFO:Data analysis ended at: 2022-12-27 21:31:11.740115
+12/27/2022 09:31:11 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:31:11 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:31:11 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:31:55 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:31:58 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:31:58 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:31:58 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:31:59 PM INFO:Data analysis started at: 2022-12-27 21:31:55.502213
+12/27/2022 09:31:59 PM INFO:Data analysis ended at: 2022-12-27 21:31:59.277585
+12/27/2022 09:31:59 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:31:59 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:31:59 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:32:45 PM INFO:
+=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:32:48 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:32:48 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:32:48 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:32:49 PM INFO:Data analysis started at: 2022-12-27 21:32:45.957158
+12/27/2022 09:32:49 PM INFO:Data analysis ended at: 2022-12-27 21:32:49.718329
+12/27/2022 09:32:49 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:32:49 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:32:49 PM INFO:=====================DATA ANALYSIS ENDED=====================
+12/27/2022 09:33:28 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:33:31 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:33:31 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:33:31 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:33:32 PM INFO:Data analysis started at: 2022-12-27 21:33:28.835215
+12/27/2022 09:33:32 PM INFO:Data analysis ended at: 2022-12-27 21:33:32.524210
+12/27/2022 09:33:32 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:33:32 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:33:32 PM INFO:=====================DATA ANALYSIS ENDED=====================
+
+12/27/2022 09:33:35 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:33:38 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:33:38 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:33:38 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:33:39 PM INFO:Data analysis started at: 2022-12-27 21:33:35.949652
+12/27/2022 09:33:39 PM INFO:Data analysis ended at: 2022-12-27 21:33:39.648789
+12/27/2022 09:33:39 PM INFO:Number of rows with NaN values: 23
+12/27/2022 09:33:39 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:33:39 PM INFO:=====================DATA ANALYSIS ENDED=====================
+
+12/27/2022 09:34:24 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:34:27 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:34:27 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:34:27 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:34:28 PM INFO:Data analysis started at: 2022-12-27 21:34:24.743988
+12/27/2022 09:34:28 PM INFO:Data analysis ended at: 2022-12-27 21:34:28.587176
+12/27/2022 09:34:28 PM INFO:Number of rows with NaN values: 23 in Analytics model
+12/27/2022 09:34:28 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:34:28 PM INFO:=====================DATA ANALYSIS ENDED=====================
+
+12/27/2022 09:35:01 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/27/2022 09:35:04 PM INFO:Number of missing values in max_temp : 34833
+12/27/2022 09:35:04 PM INFO:Number of missing values in min_temp : 36356
+12/27/2022 09:35:04 PM INFO:Number of missing values in precipitation : 34769
+12/27/2022 09:35:05 PM INFO:Data analysis started at: 2022-12-27 21:35:01.935712
+12/27/2022 09:35:05 PM INFO:Data analysis ended at: 2022-12-27 21:35:05.645945
+12/27/2022 09:35:05 PM INFO:Number of rows with NaN values in Analytics model: 23
+12/27/2022 09:35:05 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/27/2022 09:35:05 PM INFO:=====================DATA ANALYSIS ENDED=====================
+

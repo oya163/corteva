@@ -55,21 +55,31 @@ $ git clone https://github.com/corteva/code-challenge-template.git
 
 ### Run the data loading scripts
  - Ingest weather data
+
+    $ `python manage.py runscript weather_data_ingestion`
+
 ```
-python manage.py runscript weather_data_ingestion
+This script loads the weather data from CSV file and ingests into WeatherData table. It also performs basic data cleaning before inserting into database table, like converting -9999 as NULL values, so that it will be easier for calculation in later phases.
 ```
 
  - Ingest yield data
+
+    $ `python manage.py runscript yield_data_ingestion`
+
 ```
-python manage.py runscript yield_data_ingestion
+This script loads the yield data from CSV file and ingests into YieldData table
 ```
 
  - Perform ETL
+
+    $ `python manage.py runscript perform_etl`
+
 ```
-python manage.py runscript perform_etl
+This script basically loads the weather data from WeatherData table into pandas dataframe, performs basic calculation like converting temperatures from one-tenths of degree Celsius to degree Celsius and converting precipitation from one-tenths of millimeter into centimeter, and inserts transfromed records into Analytics table for further consumption by REST API.
 ```
 
-### Start the django standalone server
+### Spin up the django standalone server
+
 ```
 python manage.py runserver
 

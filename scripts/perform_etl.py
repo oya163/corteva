@@ -15,14 +15,14 @@ import pandas as pd
 
 from weatherapp.models import WeatherData, Analytics
 
-logging.basicConfig(filename='logs/log_analysis.log',
+logging.basicConfig(filename='logs/log_etl.log',
                     filemode='a',
                     format='%(asctime)s %(levelname)s:%(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S %p',
                     level=logging.DEBUG)
 
 
-def perform_analysis():
+def perform_aggregation():
     """
         1. Load dataframe from database
         2. Check/Replace missing values
@@ -59,6 +59,10 @@ def perform_analysis():
     df_sum_precip = df.groupby([df['date'].dt.year, 'station_id']).agg(
         total_precipitation=('precipitation', 'sum')).reset_index()
 
+    # Convert one-tenth of degree Celsius to degree Celsius
+    df_avg_max_temp['avg_max_temp'] = df_avg_max_temp['avg_max_temp'] * 0.1
+    df_avg_min_temp['avg_min_temp'] = df_avg_min_temp['avg_min_temp'] * 0.1
+
     # Convert one-tenth of millimeter to centimeter
     df_sum_precip['total_precipitation'] = df_sum_precip['total_precipitation'] * 0.01
 
@@ -78,13 +82,13 @@ def run():
     start_time = datetime.now()
 
     # Analytics table clean up
-    # Analytics.objects.all().delete()
+    Analytics.objects.all().delete()
 
     logging.info(
         "=====================DATA ANALYSIS STARTED=====================")
 
     # Get the dataframe after performing required calculation
-    df = perform_analysis()
+    df = perform_aggregation()
 
     # Replace NaNs with Null so PostgreSQL can understand
     df = df.replace(np.nan, None)

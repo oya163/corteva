@@ -3,9 +3,9 @@ name: Corteva Data Ingestion
 
 on:
   push:
-    branches: [main]
+    branches: ["master"]
   pull_request:
-    branches: [main]
+    branches: ["master"]
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
       POSTGRES_HOST: localhost # default host value for the database
       POSTGRES_DB: testdb
       POSTGRES_PORT: 5432
-      DJANGO_SECRET_KEY: random-test-key-1
+      DJANGO_SECRET_KEY: random-test-key
     services:
       postgres_main:
         image: postgres:12

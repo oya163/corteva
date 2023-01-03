@@ -151,4 +151,4 @@ Django's in-built test library is utilized to perform the test on the response o
 
 ## CI pipeline
 
-A simple Continuous Integration (CI) workflow is integrated in Github Actions so that **linting** and **testing** are performed after every `git push` to the main branch.
+A simple Continuous Integration (CI) workflow is integrated in Github Actions so that **linting** and **testing** are performed on every `push` and `pull requests` to the master branch.

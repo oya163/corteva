@@ -147,4 +147,8 @@ Usage:
 
 ## Testing
 
-Django's in-built test library is utilized to perform the test on the response of all of the exposed APIs and also checks max temperature is always greater than min temperature.
+Django's in-built test library is utilized to perform the test on the response of all of the exposed APIs and also checks max temperature is always greater than min temperature on Analytics table.
+
+## CI pipeline
+
+A simple Continuous Integration (CI) workflow is integrated in Github Actions so that **linting** and **testing** are performed after every `git push` to the main branch.

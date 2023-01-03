@@ -38,7 +38,7 @@ def run():
     num_of_files = 0
 
     # Walk down each files inside a given directory
-    for root, dirs, files in os.walk(WEATHER_DATA_DIR):
+    for root, _, files in os.walk(WEATHER_DATA_DIR):
         for file in files:
             file_name = os.path.join(root, file)
             station_id = file.split('.')[0]     # station id is filename

@@ -26,7 +26,7 @@ def run():
     start_time = datetime.now()
     rec_count = 0
     total_count = 0
-    for root, dirs, files in os.walk('code-challenge-template/yld_data'):
+    for root, _, files in os.walk('code-challenge-template/yld_data'):
         for file in files:
             file_name = os.path.join(root, file)
             with open(file_name, newline='', encoding='utf-8') as csvfile:

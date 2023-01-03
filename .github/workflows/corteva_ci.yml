@@ -1,7 +1,11 @@
 name: Corteva Data Ingestion
 # Reference - https://www.codingforentrepreneurs.com/blog/django-github-actions/
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:

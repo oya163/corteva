@@ -45,8 +45,6 @@ def run():
                     rec_count += len(inserted_list)
                 except:
                     logging.warning("Duplicate data insertion not allowed !!!")
-                finally:
-                    yield_data_list = []
 
     end_time = datetime.now()
 

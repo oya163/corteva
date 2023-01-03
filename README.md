@@ -53,38 +53,42 @@ $ git clone https://github.com/corteva/code-challenge-template.git
 
 ## How to run
 
-### Run the data loading scripts
- - Ingest weather data
+### Data ingestion scripts
+ - Weather data ingestion
+   - **weather_data_ingestion** script loads the weather data from CSV file and ingests into **WeatherData** table. 
+   - Performs basic data cleaning before inserting into database table, like converting -9999 as NULL values, so that it will be easier for calculation in later phases. 
+   - Performs bulk insertion of data of each file for faster data ingestion. 
+   - Produces log which are recorded into **logs/log_ingestion.log** file.
 
-    $ `python manage.py runscript weather_data_ingestion`
-
-```
-This script loads the weather data from CSV file and ingests into WeatherData table. It also performs basic data cleaning before inserting into database table, like converting -9999 as NULL values, so that it will be easier for calculation in later phases.
-```
-
- - Ingest yield data
-
-    $ `python manage.py runscript yield_data_ingestion`
 
 ```
-This script loads the yield data from CSV file and ingests into YieldData table
+python manage.py runscript weather_data_ingestion
 ```
+
+
+ - Yield data ingestion
+   - **yield_data_ingestion** script loads the yield data from CSV file and ingests into **YieldData** table. 
+   - Produces log which are recorded into **logs/log_ingestion.log** file.
+    
+```
+python manage.py runscript yield_data_ingestion
+```
+
 
  - Perform ETL
-
-    $ `python manage.py runscript perform_etl`
-
-```
-This script basically loads the weather data from WeatherData table into pandas dataframe, performs basic calculation like converting temperatures from one-tenths of degree Celsius to degree Celsius and converting precipitation from one-tenths of millimeter into centimeter, and inserts transfromed records into Analytics table for further consumption by REST API.
-```
-
-### Spin up the django standalone server
+   - **perform_etl** script basically loads the weather data from **WeatherData** table into pandas dataframe.
+   - Performs basic calculation like converting temperatures from one-tenths of degree Celsius to degree Celsius and converting precipitation from one-tenths of millimeter into centimeter, and inserts transformed records into **Analytics** table for further consumption by REST API.
+   - Produces log which are recorded into **logs/log_etl.log** file.
 
 ```
-python manage.py runserver
-
-Note: The server is hosted at http://127.0.0.1:8000/ by default
+python manage.py runscript perform_etl
 ```
+
+### Django standalone server
+
+The server is hosted at http://127.0.0.1:8000/ by default
+
+    python manage.py runserver
 
 ## REST API
 
@@ -140,3 +144,7 @@ Usage:
     - http://127.0.0.1:8000/api/weather/stats?station_id=USC00110072
     - http://127.0.0.1:8000/api/weather/stats?date=2014-01-01&station_id=USC00110072
 ``` 
+
+## Testing
+
+Django's in-built test library is utilized to perform the test on the response of all of the exposed APIs and also checks max temperature is always greater than min temperature.

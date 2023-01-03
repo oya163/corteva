@@ -1,0 +1,10 @@
+12/30/2022 09:43:14 PM INFO:=====================DATA ANALYSIS STARTED=====================
+12/30/2022 09:43:17 PM INFO:Number of missing values in max_temp : 34833
+12/30/2022 09:43:17 PM INFO:Number of missing values in min_temp : 36356
+12/30/2022 09:43:17 PM INFO:Number of missing values in precipitation : 34769
+12/30/2022 09:43:18 PM INFO:Data analysis started at: 2022-12-30 21:43:14.485355
+12/30/2022 09:43:18 PM INFO:Data analysis ended at: 2022-12-30 21:43:18.257877
+12/30/2022 09:43:18 PM INFO:Number of rows with NaN values in Analytics model: 23
+12/30/2022 09:43:18 PM INFO:Data analysis took: 3 seconds and inserted 4820 records
+12/30/2022 09:43:18 PM INFO:=====================DATA ANALYSIS ENDED=====================
+

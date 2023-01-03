@@ -10,7 +10,7 @@ jobs:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_HOST: localhost # default host value for the database
-      POSTGRES_DB: test_corteva
+      POSTGRES_DB: testdb
       POSTGRES_PORT: 5432
       DJANGO_SECRET_KEY: random-test-key
     services:

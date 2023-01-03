@@ -43,7 +43,7 @@ def run():
                     inserted_list = YieldData.objects.bulk_create(
                         yield_data_list)
                     rec_count += len(inserted_list)
-                except:  # pylint: disable=W0702
+                except:
                     logging.warning("Duplicate data insertion not allowed !!!")
                 finally:
                     yield_data_list = []

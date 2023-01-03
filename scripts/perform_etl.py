@@ -79,13 +79,14 @@ def perform_aggregation():
 
 
 def run():
+    # Analytics table clean up
+    # Uncomment when necessary
+    # Analytics.objects.all().delete()
+
     start_time = datetime.now()
 
-    # Analytics table clean up
-    Analytics.objects.all().delete()
-
     logging.info(
-        "=====================DATA ANALYSIS STARTED=====================")
+        "=====================ETL STARTED=====================")
 
     # Get the dataframe after performing required calculation
     df = perform_aggregation()
@@ -114,12 +115,12 @@ def run():
     end_time = datetime.now()
 
     # Logging important info
-    logging.info("Data analysis started at: %s", str(start_time))
-    logging.info("Data analysis ended at: %s", str(end_time))
+    logging.info("ETL started at: %s", str(start_time))
+    logging.info("ETL ended at: %s", str(end_time))
     logging.info(
         "Number of rows with NaN values in Analytics model: %d", df_with_nulls.shape[0])
-    logging.info("Data analysis took: %d seconds and inserted %d records",
+    logging.info("ETL took: %d seconds and inserted %d records",
                  (end_time-start_time).total_seconds(), len(inserted_list))
 
     logging.info(
-        "=====================DATA ANALYSIS ENDED=====================\n")
+        "=====================ETL ENDED=====================\n")

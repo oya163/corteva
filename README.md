@@ -1,6 +1,6 @@
 # Corteva Coding Assignment
 
-This is a simple data ingestion pipeline.
+This is a simple ETL pipeline project
 
 ## Tech Stack
 ```
